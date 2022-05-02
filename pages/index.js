@@ -17,10 +17,12 @@ export default function Home({images}) {
 	);
 }
 
-Home.getInitialProps = async() => {
+export async function getStaticProps() {
 	const response = await fetch('http://localhost:3000/api/hello');
   	const images = await response.json();
 	return {
-	  images
+		props: {
+			images
+		}
 	};
 };
