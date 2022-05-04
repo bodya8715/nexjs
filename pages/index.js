@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Box, ImageListItem } from "@mui/material";
+import { Box, ImageListItem, Typography } from "@mui/material";
 import CustomImageList from '../components/CustomImageList';
 import CustomImage from '../components/CustomImage';
 import axios from 'axios';
@@ -17,6 +17,7 @@ export default function Home() {
 						value {
 							image
 							id
+							title
 						}
 					}
 				`
@@ -36,10 +37,13 @@ export default function Home() {
 				<CustomImageList cols={3} rowHeight={164}>
 					{images.map((item) => (
 						<ImageListItem sx={{margin: '20px'}} key={item.id}>
-							<CustomImage
-								src={`/images/${item.image}`}
-								loading="lazy"
-							/>
+							<Box>
+								<CustomImage
+									src={`/images/${item.image}`}
+									loading="lazy"
+								/>
+								<Typography align='center'>Title: {item.title}</Typography>
+							</Box>
 						</ImageListItem>
 					))}
 				</CustomImageList>
