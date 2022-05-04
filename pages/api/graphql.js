@@ -22,8 +22,8 @@ async function getRandomImages() {
     sendData.push({
       image: filesList[getRandomIntInclusive(0, filesList.length - 1)], 
       id: Math.random(),
-      title
-      // description: ''
+      title,
+      signature: title.split('').reverse().join('')
     });
   }
 
@@ -39,6 +39,7 @@ const typeDefs = gql`
     image: String
     id: Float
     title: String
+    signature: String
   }
 `
 

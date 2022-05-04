@@ -18,6 +18,7 @@ export default function Home() {
 							image
 							id
 							title
+							signature
 						}
 					}
 				`
@@ -34,7 +35,7 @@ export default function Home() {
 		<>
 			{
 				!images ? <Box>Loading</Box> :
-				<CustomImageList cols={3} rowHeight={164}>
+				<CustomImageList cols={3} rowHeight={200}>
 					{images.map((item) => (
 						<ImageListItem sx={{margin: '20px'}} key={item.id}>
 							<Box>
@@ -43,6 +44,7 @@ export default function Home() {
 									loading="lazy"
 								/>
 								<Typography align='center'>Title: {item.title}</Typography>
+								<Typography align='center'>Signature: {item.signature}</Typography>
 							</Box>
 						</ImageListItem>
 					))}
